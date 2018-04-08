@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tank_monitor_app</string>
+    <string name="text_home">Home</string>
+    <string name="text_analytics">Analytics</string>
+</resources>
