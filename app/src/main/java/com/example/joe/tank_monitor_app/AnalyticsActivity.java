@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
  * Created by root on 4/5/18.
  */
 
-public class AnalyticsActivity extends MainActivity {
+public class AnalyticsActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        setContentView(R.layout.activity_analytics);
         super.onCreate(savedInstanceState);
     }
 

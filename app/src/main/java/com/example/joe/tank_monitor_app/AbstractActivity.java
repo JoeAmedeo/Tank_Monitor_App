@@ -21,6 +21,11 @@ public class AbstractActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
@@ -41,22 +46,7 @@ public class AbstractActivity extends AppCompatActivity {
                     }
                 });
 
-
     }
 
-    protected String httpGet(String urlString){
-        String input;
-        try{
-            URL url = new URL(urlString);
-            URLConnection connection = url.openConnection();
-            InputStream inputStream = connection.getInputStream();
-            Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
-            input = scanner.hasNext() ? scanner.next() : "";
-            //TODO: test api call and handle return data
-        }catch(Exception e){
-            //TODO: handle exception
-            input = "";
-        }
-        return input;
-    }
+
 }
