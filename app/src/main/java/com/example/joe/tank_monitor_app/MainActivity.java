@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         try {
-            sensorData1 = apiCalls.execute("17", "1").get();
-            sensorData2 = apiCalls.execute("18", "1").get();
+            sensorData1 = new ApiCalls().execute(1, 1).get();
+            sensorData2 = new ApiCalls().execute(2, 1).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -49,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         TextView sensorTempurature2 = (TextView) findViewById(R.id.tank2TempValue);
         TextView sensorHumidity2 = (TextView) findViewById(R.id.tank2HumidValue);
 
-        sensorTempurature1.setText(sensorData1.get(0).tempurature);
-        sensorHumidity1.setText(sensorData1.get(0).humidity);
+        sensorTempurature1.setText(String.valueOf(sensorData1.get(0).tempurature));
+        sensorHumidity1.setText(String.valueOf(sensorData1.get(0).humidity));
 
-        sensorTempurature2.setText(sensorData2.get(0).tempurature);
-        sensorHumidity2.setText(sensorData2.get(0).humidity);
+        sensorTempurature2.setText(String.valueOf(sensorData2.get(0).tempurature));
+        sensorHumidity2.setText(String.valueOf(sensorData2.get(0).humidity));
     }
 }

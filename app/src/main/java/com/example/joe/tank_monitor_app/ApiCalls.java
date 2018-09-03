@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ApiCalls extends AsyncTask<String, String, ArrayList<InputModel>> {
+public class ApiCalls extends AsyncTask<Integer, String, ArrayList<InputModel>> {
 
     public ApiCalls(){
 
@@ -36,11 +36,11 @@ public class ApiCalls extends AsyncTask<String, String, ArrayList<InputModel>> {
     }
 
     @Override
-    protected ArrayList<InputModel> doInBackground(String... strings) {
+    protected ArrayList<InputModel> doInBackground(Integer... strings) {
         OutputStream outputStream = null;
         OutputModel output = new OutputModel();
         output.sensorNumber = strings[0];
-        output.rowCount = strings[1];
+        output.rowCount = strings[1].toString();
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson outputGson = gsonBuilder.create();
         String outputJson = outputGson.toJson(output);
@@ -52,7 +52,7 @@ public class ApiCalls extends AsyncTask<String, String, ArrayList<InputModel>> {
         Type listType = new TypeToken<ArrayList<InputModel>>(){}.getType();
 
         try{
-            URL url = new URL("http://calm-anchorage-24091.herokuapp.com/");
+            URL url = new URL("https://calm-anchorage-24091.herokuapp.com/");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);

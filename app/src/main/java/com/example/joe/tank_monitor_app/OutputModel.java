@@ -1,6 +1,6 @@
 package com.example.joe.tank_monitor_app;
 
 public class OutputModel {
-    public String sensorNumber;
+    public Integer sensorNumber;
     public String rowCount;
 }
